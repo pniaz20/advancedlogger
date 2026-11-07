@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pniaz-advanced-logger"
+dynamic = ["version"]
+description = "Advanced, flexible logging for Python scripts, functions and class methods: colored aligned console logs, timestamped log files, and decorators that log calls and errors without try/except boilerplate."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Pouya P. Niaz" }]
+keywords = ["logging", "logger", "decorator", "colored logs", "timestamped logs"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: System :: Logging",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://github.com/pniaz20/advancedlogger"
+Source = "https://github.com/pniaz20/advancedlogger/tree/main/python"
+Issues = "https://github.com/pniaz20/advancedlogger/issues"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["advanced_logger*"]
+
+[tool.setuptools.package-data]
+advanced_logger = ["py.typed"]
+
+[tool.setuptools.dynamic]
+version = { attr = "advanced_logger.__version__" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
